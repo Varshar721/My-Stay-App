@@ -15,7 +15,17 @@ public class BookingRequestQueue {
                            " (" + reservation.getRoomType() + ")");
     }
 
-    // Display all queued requests in FIFO order
+    // Get next request in FIFO order
+    public Reservation getNextBookingRequest() {
+        return bookingQueue.poll();
+    }
+
+    // Check if queue is empty
+    public boolean isEmpty() {
+        return bookingQueue.isEmpty();
+    }
+
+    // Display all queued requests
     public void displayBookingQueue() {
         System.out.println("\n===== BOOKING REQUEST QUEUE (FIFO ORDER) =====");
 
