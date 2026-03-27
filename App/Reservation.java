@@ -1,14 +1,20 @@
 public class Reservation {
+    private String reservationId;
     private String guestName;
     private String roomType;
     private String allocatedRoomId;
     private boolean confirmed;
 
-    public Reservation(String guestName, String roomType) {
+    public Reservation(String reservationId, String guestName, String roomType) {
+        this.reservationId = reservationId;
         this.guestName = guestName;
         this.roomType = roomType;
         this.allocatedRoomId = null;
         this.confirmed = false;
+    }
+
+    public String getReservationId() {
+        return reservationId;
     }
 
     public String getGuestName() {
@@ -33,14 +39,17 @@ public class Reservation {
     }
 
     public void displayReservationDetails() {
+        System.out.println("Reservation ID   : " + reservationId);
         System.out.println("Guest Name       : " + guestName);
-        System.out.println("Requested Room   : " + roomType);
+        System.out.println("Room Type        : " + roomType);
+
         if (confirmed) {
             System.out.println("Reservation      : CONFIRMED");
             System.out.println("Allocated RoomID : " + allocatedRoomId);
         } else {
             System.out.println("Reservation      : PENDING");
         }
+
         System.out.println("----------------------------------------");
     }
 }
